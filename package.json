@@ -1,0 +1,24 @@
+{"name":"gemtk",
+ "version":"0.1.0",
+ "description": "A toolkit of gem components for Gem.js",
+ "keywords": [
+    "Gem.js", "gem", "toolkit", "web", "components", "html", "css", "style", "view", "react",
+    "angular", "angularjs", "blocks", "application", "react", "backbone"
+ ],
+  "dependencies": {
+    "keysight":"*"
+  },
+  "peerDependencies": {
+    "proto":"*",
+    "gem": "*"
+  },
+ "devDependencies": {
+   "build-modules":"*",
+   "proto":"*",
+   "gem": "*"
+ },
+ "repository": {
+   "type": "git",
+   "url": "git://github.com/Tixit/gemtk"
+ }
+}
