@@ -3,10 +3,12 @@
  "description": "A toolkit of gem components for Gem.js",
  "keywords": [
     "Gem.js", "gem", "toolkit", "web", "components", "html", "css", "style", "view", "react",
-    "angular", "angularjs", "blocks", "application", "react", "backbone"
+    "angular", "angularjs", "blocks", "application", "react", "backbone",
+    "Combo", "ComboBox", "dropdown"
  ],
   "dependencies": {
-    "keysight":"*"
+    "keysight":"*",
+    "hashmap":"*"
   },
   "peerDependencies": {
     "proto":"*",

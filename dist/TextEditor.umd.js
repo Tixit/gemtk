@@ -1,14 +1,13 @@
-/* Copyright (c) 2013 Billy Tetrud - Free to use for any purpose: MIT License*/
-var Gem=Gem.Gem,Style=Gem.Style,Block=Gem.Block,Button=Gem.Button,Canvas=Gem.Canvas,CheckBox=Gem.CheckBox,Image=Gem.Image,List=Gem.List,Radio=Gem.Radio,Select=Gem.Select,Svg=Gem.Svg,Table=Gem.Table,Text=Gem.Text,TextArea=Gem.TextArea,TextField=Gem.TextField
+window["gem/Style"]=Gem.Style;window["gem/Block"]=Gem.Block;window["gem/Button"]=Gem.Button;window["gem/Canvas"]=Gem.Canvas;window["gem/CheckBox"]=Gem.CheckBox;window["gem/Image"]=Gem.Image;window["gem/List"]=Gem.List;window["gem/Radio"]=Gem.Radio;window["gem/Select"]=Gem.Select;window["gem/Svg"]=Gem.Svg;window["gem/Table"]=Gem.Table;window["gem/Text"]=Gem.Text;window["gem/TextArea"]=Gem.TextArea;window["gem/TextField"]=Gem.TextField;window.gem=Gem;
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("proto"), require("Gem"), require("Style"), require("Text"));
+		module.exports = factory(require("proto"), require("gem"), require("gem/Style"), require("gem/Text"));
 	else if(typeof define === 'function' && define.amd)
-		define(["proto", "Gem", "Style", "Text"], factory);
+		define(["proto", "gem", "gem/Style", "gem/Text"], factory);
 	else if(typeof exports === 'object')
-		exports["TextEditor"] = factory(require("proto"), require("Gem"), require("Style"), require("Text"));
+		exports["TextEditor"] = factory(require("proto"), require("gem"), require("gem/Style"), require("gem/Text"));
 	else
-		root["TextEditor"] = factory(root["proto"], root["Gem"], root["Style"], root["Text"]);
+		root["TextEditor"] = factory(root["proto"], root["gem"], root["gem/Style"], root["gem/Text"]);
 })(this, function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_3__, __WEBPACK_EXTERNAL_MODULE_4__, __WEBPACK_EXTERNAL_MODULE_5__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -494,7 +493,7 @@ module.exports.unprintableKeys = {
 /***/ }),
 /* 3 */
 /*!**********************!*\
-  !*** external "Gem" ***!
+  !*** external "gem" ***!
   \**********************/
 /*! no static exports found */
 /*! all exports used */
@@ -504,9 +503,9 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_3__;
 
 /***/ }),
 /* 4 */
-/*!************************!*\
-  !*** external "Style" ***!
-  \************************/
+/*!****************************!*\
+  !*** external "gem/Style" ***!
+  \****************************/
 /*! no static exports found */
 /*! all exports used */
 /***/ (function(module, exports) {
@@ -515,9 +514,9 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_4__;
 
 /***/ }),
 /* 5 */
-/*!***********************!*\
-  !*** external "Text" ***!
-  \***********************/
+/*!***************************!*\
+  !*** external "gem/Text" ***!
+  \***************************/
 /*! no static exports found */
 /*! all exports used */
 /***/ (function(module, exports) {

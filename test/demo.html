@@ -2,9 +2,38 @@
 
 <script src="../node_modules/proto/dist/proto.umd.js"></script>
 <script src="../node_modules/gem/dist/Gem.dev.umd.js"></script>
-<script>var Style = Gem.Style, Text = Gem.Text</script>
 <script src="../dist/TextEditor.umd.js"></script>
+<script src="../dist/Dropdown.umd.js"></script>
+<script src="../dist/DropButton.umd.js"></script>
+<script src="../dist/ComboBox.umd.js"></script>
 
 <script>
+    var Text = window['gem/Text'], Block = window['gem/Block']
+
+
+    var lineBreak = function() {
+        var block = Block()
+        block.style = {display:'block', height: 50}
+        block.attach()
+    }
+
     TextEditor({initial:'hi'}).attach()
+
+    lineBreak()
+
+    var dropdown = Dropdown(Text("Dropdown"), Text("Dropdown content"))
+    dropdown.attach()
+    setTimeout(function() {
+        dropdown.open()
+    },1000)
+
+    lineBreak()
+
+    DropButton(Text("Click me"), Text("Dropdown content")).attach()
+
+    lineBreak()
+
+    ComboBox(['a','b','c'], {}, function(item) {
+        return Text(item)
+    }).attach()
 </script>

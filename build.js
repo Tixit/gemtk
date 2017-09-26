@@ -7,16 +7,29 @@ if(!fs.existsSync(buildDirectory)) {
     fs.mkdirSync(buildDirectory)
 }
 
-var copywrite = '/* Copyright (c) 2013 Billy Tetrud - Free to use for any purpose: MIT License*/\n'+generateGemModuleTranslations(
-    ['Gem', 'Style', 'Block', 'Button', 'Canvas', 'CheckBox', 'Image', 'List',
-            'Radio', 'Select', 'Svg', 'Table', 'Text', 'TextArea', 'TextField']
-)
+var copywrite = '/* Copyright (c) 2013 Billy Tetrud - Free to use for any purpose: MIT License*/'
 
 console.log('building and minifying...')
-build('TextEditor', {
-    output: {path:buildDirectory},
-    header: copywrite, minify:false,
-    externals : {proto:'proto', gem:'Gem', "gem/Style":'Style', "gem/Text":'Text'}
+
+var gemModules = ['Style','Block','Button','Canvas','CheckBox','Image','List','Radio','Select','Svg','Table','Text','TextArea','TextField']
+var gemModulePaths = gemModules.map(function(module) {
+    return 'gem/'+module
+})
+var externalModules = ['proto','gem'].concat(gemModulePaths)
+
+var header = gemModules.map(function(moduleName){
+    return 'window["gem/'+moduleName+'"]=Gem.'+moduleName
+}).join(';')+';window.gem=Gem;'
+
+var toolkitGems = ['TextEditor', 'Dropdown', 'DropButton', 'Option', 'ComboBox']
+
+toolkitGems.forEach(function(gem) {
+    build(gem, {
+        output: {path:buildDirectory}, minify:false,
+        header: header,
+        externals: externalModules
+        //externals : {proto:'proto', gem:'Gem', "gem/Style":['Gem','Style'], "gem/Text":["Gem",'Text']}  // this is broken in webpack currently : (
+    })
 })
 
 
@@ -31,13 +44,4 @@ function build(relativeModulePath, options) {
     emitter.on('warning', function(w) {
        console.log(w)
     })
-}
-
-function generateGemModuleTranslations(gems) {
-    var result = []
-    gems.forEach(function(gem) {
-        result.push(gem+'=Gem.'+gem)
-    })
-
-    return 'var '+result.join(",")
 }
